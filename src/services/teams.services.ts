@@ -1,5 +1,5 @@
-import { Team } from "../models/team.model";
-import { ITeam } from "../interfaces/team.interface";
+import { Team } from "../models/teams.model";
+import { ITeam } from "../interfaces/teams.interface";
 
 export class TeamsService 
 {
@@ -29,11 +29,11 @@ export class TeamsService
         return deletedTeam;
     }
 
-    public async update(id: string, pokemon: ITeam) 
+    public async update(id: string, team: ITeam) 
     {
         const updatedTeam = await Team.findByIdAndUpdate(
           id,
-          pokemon
+          team
         ).exec();
     
         if (!updatedTeam) {

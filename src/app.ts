@@ -4,7 +4,7 @@ import cors from "cors";
 import express from "express";
 import mongoose from "mongoose";
 
-import { MONGO_URL, PRE_URL } from "./constants/pokeApi.constants";
+import { MONGO_URL, PRE_URL } from "./constants/general.constants";
 
 import { TeamsService } from "./services/teams.services";
 import { TeamsController } from "./controller/teams.controller";
@@ -23,11 +23,8 @@ class App
 
     private setConfig() 
     {
-        // Allows us to receive requests with data in json format
         this.app.use(bodyParser.json({ limit: "50mb" }));
-        // Allows us to receive requests with data in x-www-form-urlencoded format
         this.app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
-        // Enables cors
         this.app.use(cors());
     }
 
@@ -40,10 +37,8 @@ class App
 
     private setControllers() 
     {
-        // Creating a new instance of our Pokemon Controller
         const pokemonController = new TeamsController(new TeamsService());
     
-        // Telling express to use our Controller's routes
         this.app.use(PRE_URL, pokemonController.router);
     }
 }

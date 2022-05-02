@@ -1,6 +1,6 @@
 import { Request, Response, Router } from "express";
 
-import { CREATE_TEAM_ROUTE, DELETE_TEAM_ROUTE, GET_TEAMS_ROUTE, UPDATE_TEAM_ROUTE } from "../constants/pokeApi.constants";
+import { CREATE_TEAM_ROUTE, DELETE_TEAM_ROUTE, GET_TEAMS_ROUTE, UPDATE_TEAM_ROUTE } from "../constants/general.constants";
 
 import { TeamsService } from "../services/teams.services";
 
