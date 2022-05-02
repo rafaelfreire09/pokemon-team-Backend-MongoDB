@@ -1,5 +1,7 @@
 import { Request, Response, Router } from "express";
 
+import { CREATE_TEAM_ROUTE, DELETE_TEAM_ROUTE, GET_TEAMS_ROUTE, UPDATE_TEAM_ROUTE } from "../constants/pokeApi.constants";
+
 import { TeamsService } from "../services/teams.services";
 
 export class TeamsController 
@@ -13,23 +15,26 @@ export class TeamsController
 
     public setRoutes() 
     {
-        this.router.route("/createTeam").post(this.add);
+        this.router.route(GET_TEAMS_ROUTE).get(this.getAllTeams);
 
-        this.router.route("/getAllTeams").get(this.findAll);
+        this.router.route(CREATE_TEAM_ROUTE).post(this.add);
+        
+        this.router.route(UPDATE_TEAM_ROUTE).put(this.update);
+        
+        this.router.route(DELETE_TEAM_ROUTE).delete(this.delete);
 
-        this.router.route("/updateTeam/:id").put(this.update);
-
-        this.router.route("/deleteTeam/:id").delete(this.delete);
+        //this.router.route("/getTeam/:id").get(this.getTeam);
     }
 
-    private findAll = async (req: Request, res: Response) => 
+    private getAllTeams = async (req: Request, res: Response) => 
     {
         try 
         {
-            const pokemon = await this.teamsService.findAll();
+            const pokemon = await this.teamsService.getAllTeams();
 
             res.send(pokemon);
-        } catch (error: any) {
+        } catch (error: any) 
+        {            
             res.status(500).send(error.message);
         }
     };
@@ -38,10 +43,11 @@ export class TeamsController
     {
         try 
         {
-            const addPokemonResult = await this.teamsService.add(req.body);
+            const addPokemonResult = await this.teamsService.add(req.body.team);
 
             res.send(addPokemonResult);
-        } catch (error: any) {
+        } catch (error: any) 
+        {
             res.status(500).send(error.message);
         }
     };
@@ -55,7 +61,8 @@ export class TeamsController
             );
 
             res.send(deletePokemonResult);
-        } catch (error: any) {
+        } catch (error: any) 
+        {
             res.status(500).send(error.message);
         }
     };
@@ -70,8 +77,23 @@ export class TeamsController
             );
             
             res.send(updatePokemonResult);
-        } catch (error: any) {
+        } catch (error: any) 
+        {
             res.status(500).send(error.message);
         }
     };
+
+    // private getTeam = async (req: Request, res: Response) => 
+    // {
+    //     try 
+    //     {
+    //         const pokemon = await this.teamsService.getTeam(
+    //             req.params.id
+    //         );
+
+    //         res.send(pokemon);
+    //     } catch (error: any) {
+    //         res.status(500).send(error.message);
+    //     }
+    // };
 }

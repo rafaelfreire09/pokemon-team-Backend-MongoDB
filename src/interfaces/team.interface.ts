@@ -1,8 +1,6 @@
-// import { Document } from "mongoose";
-
 export interface ITeam
 {
-    name: string;
+    name: string
     pokemons: [
         {
             image: string,

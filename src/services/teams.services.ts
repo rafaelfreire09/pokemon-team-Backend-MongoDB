@@ -3,7 +3,7 @@ import { ITeam } from "../interfaces/team.interface";
 
 export class TeamsService 
 {
-    public findAll(): Promise<ITeam[]> 
+    public getAllTeams(): Promise<ITeam[]> 
     {
         return Team.find({}).exec();
     }
@@ -42,4 +42,18 @@ export class TeamsService
     
         return updatedTeam;
     }
+
+    // public async getTeam(id: string): Promise<ITeam> 
+    // {
+    //     const getTeam = await Team.findById(
+    //         id
+    //     ).exec();
+    
+    //     if (!getTeam) 
+    //     {
+    //         throw new Error(`Team with id '${id}' not found`);
+    //     }
+    
+    //     return getTeam;
+    // }
 }

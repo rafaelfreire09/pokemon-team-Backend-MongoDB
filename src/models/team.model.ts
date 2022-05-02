@@ -8,32 +8,32 @@ const TeamSchema = new Schema<ITeam>(
         {
             image: { type: String, required: [true, "Field is required"] },
             type1: { type: String, required: [true, "Field is required"] },
-            type2: { type: String, required: [true, "Field is required"] },
+            type2: { type: String, required: [false, "Field is required"] },
         },
         {
             image: { type: String, required: [true, "Field is required"] },
             type1: { type: String, required: [true, "Field is required"] },
-            type2: { type: String, required: [true, "Field is required"] },
+            type2: { type: String, required: [false, "Field is required"] },
         },
         {
             image: { type: String, required: [true, "Field is required"] },
             type1: { type: String, required: [true, "Field is required"] },
-            type2: { type: String, required: [true, "Field is required"] },
+            type2: { type: String, required: [false, "Field is required"] },
         },
         {
             image: { type: String, required: [true, "Field is required"] },
             type1: { type: String, required: [true, "Field is required"] },
-            type2: { type: String, required: [true, "Field is required"] },
+            type2: { type: String, required: [false, "Field is required"] },
         },
         {
             image: { type: String, required: [true, "Field is required"] },
             type1: { type: String, required: [true, "Field is required"] },
-            type2: { type: String, required: [true, "Field is required"] },
+            type2: { type: String, required: [false, "Field is required"] },
         },
         {
             image: { type: String, required: [true, "Field is required"] },
             type1: { type: String, required: [true, "Field is required"] },
-            type2: { type: String, required: [true, "Field is required"] },
+            type2: { type: String, required: [false, "Field is required"] },
         },
     ]
 });

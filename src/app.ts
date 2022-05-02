@@ -4,7 +4,7 @@ import cors from "cors";
 import express from "express";
 import mongoose from "mongoose";
 
-import { MONGO_URL } from "./constants/pokeApi.constants";
+import { MONGO_URL, PRE_URL } from "./constants/pokeApi.constants";
 
 import { TeamsService } from "./services/teams.services";
 import { TeamsController } from "./controller/teams.controller";
@@ -44,7 +44,7 @@ class App
         const pokemonController = new TeamsController(new TeamsService());
     
         // Telling express to use our Controller's routes
-        this.app.use("/api", pokemonController.router);
+        this.app.use(PRE_URL, pokemonController.router);
     }
 }
 
