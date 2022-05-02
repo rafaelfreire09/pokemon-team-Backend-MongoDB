@@ -8,6 +8,6 @@ services:
     volumes:
       - ./.mongodb_data:/data/db
     environment:
-      - MONGO_INITDB_DATABASE= Pokemons
+      - MONGO_INITDB_DATABASE= PokemonTeams
     ports:
       - 27017:27017

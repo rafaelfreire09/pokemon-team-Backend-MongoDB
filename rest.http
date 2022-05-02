@@ -1,35 +1,89 @@
-GET http://localhost:9001/pokemon/all
+GET http://localhost:9001/api/getAllTeams/
 content-type: application/json
 
 ###
 
-POST http://localhost:9001/pokemon/
+POST http://localhost:9001/api/createTeam/
 content-type: application/json
 
 {
-    "name": "Charmander",
-    "gender": "Female",
-    "type": "Fire",
-    "height": 0.5,
-    "weight": 55,
-    "photo": "https://assets.../004.png"
+    "name": "My Team2",
+    "pokemons": [
+        {
+            "image": "efds",
+            "type1": "fesf",
+            "type2": "gewfgs"
+        },
+        {
+            "image": "efds",
+            "type1": "fesf",
+            "type2": "gewfgs"
+        },
+        {
+            "image": "efds",
+            "type1": "fesf",
+            "type2": "gewfgs"
+        },
+        {
+            "image": "efds",
+            "type1": "fesf",
+            "type2": "gewfgs"
+        },
+        {
+            "image": "efds",
+            "type1": "fesf",
+            "type2": "gewfgs"
+        },
+        {
+            "image": "efds",
+            "type1": "fesf",
+            "type2": "gewfgs"
+        }
+    ]
 }
 
 ###
 
-PUT http://localhost:9001/pokemon/626efac08ffda2a4a5877e65
+PUT http://localhost:9001/api/updateTeam/626f1dc8d6fb01b874ff615b
 content-type: application/json
 
 {
-    "name": "Charmeleon",
-    "gender": "Female",
-    "type": "Fire",
-    "height": 0.8,
-    "weight": 75,
-    "photo": "https://assets.../005.png"
+    "name": "My Team edited",
+    "pokemons": [
+        {
+            "image": "efds",
+            "type1": "fesf",
+            "type2": "gewfgs"
+        },
+        {
+            "image": "efds",
+            "type1": "fesf",
+            "type2": "gewfgs"
+        },
+        {
+            "image": "efds",
+            "type1": "fesf",
+            "type2": "gewfgs"
+        },
+        {
+            "image": "efds",
+            "type1": "fesf",
+            "type2": "gewfgs"
+        },
+        {
+            "image": "efds",
+            "type1": "fesf",
+            "type2": "gewfgs"
+        },
+        {
+            "image": "efds",
+            "type1": "fesf",
+            "type2": "gewfgs"
+        }
+    ]
 }
 
 ###
 
-DELETE  http://localhost:9001/pokemon/626efb1d8b98e892610280f3
+DELETE  http://localhost:9001/api/deleteTeam/626f1dc8d6fb01b874ff615b
 content-type: application/json

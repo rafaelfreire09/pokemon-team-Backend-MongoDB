@@ -6,6 +6,9 @@ import mongoose from "mongoose";
 
 import { MONGO_URL } from "./constants/pokeApi.constants";
 
+import { TeamsService } from "./services/teams.services";
+import { TeamsController } from "./controller/teams.controller";
+
 class App 
 {
     public app: Application;
@@ -15,6 +18,7 @@ class App
         this.app = express();
         this.setConfig();
         this.setMongoConfig();
+        this.setControllers();
     }
 
     private setConfig() 
@@ -34,6 +38,14 @@ class App
         mongoose.connect(MONGO_URL);
     }
 
+    private setControllers() 
+    {
+        // Creating a new instance of our Pokemon Controller
+        const pokemonController = new TeamsController(new TeamsService());
+    
+        // Telling express to use our Controller's routes
+        this.app.use("/api", pokemonController.router);
+    }
 }
 
 export default new App().app;
